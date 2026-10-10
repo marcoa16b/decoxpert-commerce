@@ -5,7 +5,7 @@ export const Settings: GlobalConfig = {
   slug: 'settings',
   label: 'Configuración del sitio',
   admin: {
-    group: 'HOME',
+    group: 'Collections',
   },
   access: {
     read: () => true,

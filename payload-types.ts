@@ -67,7 +67,6 @@ export interface Config {
   };
   blocks: {};
   collections: {
-    pages: Page;
     categories: Category;
     'product-attributes': ProductAttribute;
     products: Product;
@@ -81,7 +80,6 @@ export interface Config {
   };
   collectionsJoins: {};
   collectionsSelect: {
-    pages: PagesSelect<false> | PagesSelect<true>;
     categories: CategoriesSelect<false> | CategoriesSelect<true>;
     'product-attributes': ProductAttributesSelect<false> | ProductAttributesSelect<true>;
     products: ProductsSelect<false> | ProductsSelect<true>;
@@ -133,10 +131,29 @@ export interface UserAuthOperations {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "pages".
+ * via the `definition` "categories".
  */
-export interface Page {
+export interface Category {
   id: number;
+  name: string;
+  /**
+   * Identificador para URLs. Ej: "alarmas-para-auto"
+   */
+  slug: string;
+  /**
+   * Dejar vacío si es una categoría principal.
+   */
+  parent?: (number | null) | Category;
+  description?: string | null;
+  image?: (number | null) | Media;
+  /**
+   * Orden de aparición dentro del mismo nivel. Menor = primero.
+   */
+  order?: number | null;
+  /**
+   * Mostrar en la navegación principal o home.
+   */
+  featured?: boolean | null;
   meta?: {
     title?: string | null;
     description?: string | null;
@@ -219,42 +236,6 @@ export interface Media {
       filename?: string | null;
     };
   };
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "categories".
- */
-export interface Category {
-  id: number;
-  name: string;
-  /**
-   * Identificador para URLs. Ej: "alarmas-para-auto"
-   */
-  slug: string;
-  /**
-   * Dejar vacío si es una categoría principal.
-   */
-  parent?: (number | null) | Category;
-  description?: string | null;
-  image?: (number | null) | Media;
-  /**
-   * Orden de aparición dentro del mismo nivel. Menor = primero.
-   */
-  order?: number | null;
-  /**
-   * Mostrar en la navegación principal o home.
-   */
-  featured?: boolean | null;
-  meta?: {
-    title?: string | null;
-    description?: string | null;
-    /**
-     * Maximum upload file size: 12MB. Recommended file size for images is <500KB.
-     */
-    image?: (number | null) | Media;
-  };
-  updatedAt: string;
-  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -545,10 +526,6 @@ export interface PayloadLockedDocument {
   id: number;
   document?:
     | ({
-        relationTo: 'pages';
-        value: number | Page;
-      } | null)
-    | ({
         relationTo: 'categories';
         value: number | Category;
       } | null)
@@ -613,21 +590,6 @@ export interface PayloadMigration {
   batch?: number | null;
   updatedAt: string;
   createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "pages_select".
- */
-export interface PagesSelect<T extends boolean = true> {
-  meta?:
-    | T
-    | {
-        title?: T;
-        description?: T;
-        image?: T;
-      };
-  updatedAt?: T;
-  createdAt?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

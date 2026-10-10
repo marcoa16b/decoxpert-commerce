@@ -7,7 +7,7 @@ export const Orders: CollectionConfig = {
     plural: 'Pedidos',
   },
   admin: {
-    group: 'VENTAS',
+    group: 'Ventas',
     useAsTitle: 'orderNumber',
     defaultColumns: [
       'orderNumber',

@@ -19,7 +19,7 @@ export const Products: CollectionConfig = {
     plural: 'Productos',
   },
   admin: {
-    group: 'CATALOG',
+    group: 'Catálogo',
     useAsTitle: 'title',
     defaultColumns: ['title', 'category', 'basePrice', 'requiresInstallation', 'published'],
     listSearchableFields: ['title', 'slug', 'sku'],

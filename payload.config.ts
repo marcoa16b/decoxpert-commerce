@@ -11,17 +11,19 @@ import { Products } from './src/collections/Products'
 import { Orders } from './src/collections/Orders'
 import { Settings } from './src/globals/Settings'
 
+const USR = {
+  slug: 'users',
+  label: 'Users',
+  admin: {
+    group: 'HOME',
+  },
+  fields: [],
+}
+
 export default buildConfig({
   editor: lexicalEditor(),
 
   collections: [
-    {
-      admin: {
-        group: 'HOME',
-      },
-      slug: 'pages',
-      fields: [],
-    },
     Categories,
     ProductAttributes,
     Products,

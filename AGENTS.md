@@ -16,7 +16,7 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 ## Objetivo de la web
 Mejorar la presencia digital de la empresa y **vender productos online**, con dos modalidades:
 - **Con instalación a domicilio** (servicio core del negocio).
-- **Sin instalación** (productos que el cliente puede instalar por su cuenta).
+- **Sin instalación** (productos como accesorios o que el cliente puede instalar por su cuenta).
 
 Algunos artículos requieren instalación obligatoria, otros son opcionales, y otros no la necesitan.
 
@@ -61,11 +61,11 @@ Entidades principales esperadas para el ecommerce:
 
 ## Reglas para los agentes
 - Antes de escribir código de Next.js, **consultar `node_modules/next/dist/docs/`** (regla del bloque BEGIN/END arriba).
-- Antes de tocar APIs de Payload, **consultar Context7 MCP** para docs actualizadas (regla global).
+- Antes de tocar APIs de Payload, **consultar la Skill payload** para leer documentacion actualizada.
 - No modificar `payload-types.ts` a mano; regenerar con `payload generate:types`.
 - Respetar el grupo `HOME` para colecciones de contenido institucional (páginas).
-- Usar el plugin `@payloadcms/plugin-ecommerce` para carrito/checkout/pagos en lugar de reinventarlo.
 - Tailwind 4: sin `tailwind.config.js` por defecto — config via CSS en `globals.css`.
+- Utilizar Openspec para el proceso de desarrollo con utilizando los subagentes.
 
 ## Almacenamiento (Cloudflare R2)
 - Storage oficial: `@payloadcms/storage-s3` configurado contra Cloudflare R2 (S3-compatible).

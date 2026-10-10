@@ -18,7 +18,7 @@ export const ProductAttributes: CollectionConfig = {
     plural: 'Atributos de producto',
   },
   admin: {
-    group: 'CATALOG',
+    group: 'Catálogo',
     useAsTitle: 'name',
     defaultColumns: ['name', 'uiType', 'required', 'slug'],
     listSearchableFields: ['name', 'slug'],

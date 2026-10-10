@@ -7,7 +7,7 @@ export const Categories: CollectionConfig = {
     plural: 'Categorías',
   },
   admin: {
-    group: 'CATALOG',
+    group: 'Catálogo',
     useAsTitle: 'name',
     listSearchableFields: ['name', 'slug'],
     defaultColumns: ['name', 'parent', 'featured', 'order'],

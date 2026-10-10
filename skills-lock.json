@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "skills": {
+    "ai-sdk": {
+      "source": "vercel/ai",
+      "sourceType": "github",
+      "computedHash": "d6910e7d8bb527d2823ba58b6225b304ae649c135fc7e43ec2d2152251c218db"
+    },
+    "payload": {
+      "source": "payloadcms/payload",
+      "sourceType": "github",
+      "computedHash": "6485f2dceca2cc2100e6b0cb1babf4993a455d76eaee6744b7aae7b10a106017"
+    }
+  }
+}

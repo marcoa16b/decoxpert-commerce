@@ -4,7 +4,7 @@ import { lexicalEditor } from '@payloadcms/richtext-lexical'
 export const Media: CollectionConfig = {
   slug: 'media',
   admin: {
-    group: 'MEDIA',
+    group: 'Medios',
   },
   access: {
     read: () => true,
