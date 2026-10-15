@@ -211,6 +211,14 @@ export interface Media {
       filesize?: number | null;
       filename?: string | null;
     };
+    productCard?: {
+      url?: string | null;
+      width?: number | null;
+      height?: number | null;
+      mimeType?: string | null;
+      filesize?: number | null;
+      filename?: string | null;
+    };
     card?: {
       url?: string | null;
       width?: number | null;
@@ -320,6 +328,20 @@ export interface Product {
       }[]
     | null;
   /**
+   * Etiquetas de la tarjeta y la página de producto. "Promo" se muestra en rojo (ej: "Más vendido") y "Highlight" en verde (ej: "Garantía 1 año"). El descuento (-X% OFF) NO se escribe aquí: se calcula desde el precio tachado.
+   */
+  badges?:
+    | {
+        label: string;
+        style: 'promo' | 'highlight' | 'info';
+        id?: string | null;
+      }[]
+    | null;
+  /**
+   * Meses de garantía ofrecidos. Se muestra en la tarjeta y la página de producto.
+   */
+  warrantyMonths?: number | null;
+  /**
    * Precio por defecto del producto en colones (CRC).
    */
   basePrice: number;
@@ -384,6 +406,10 @@ export interface Product {
         id?: string | null;
       }[]
     | null;
+  /**
+   * Disponibilidad del producto cuando NO tiene variantes. Vacío = sin control de stock. 0 = agotado. Si tiene variantes, el stock se controla por variante.
+   */
+  stock?: number | null;
   /**
    * Si está activo, el producto aparece en la tienda.
    */
@@ -651,6 +677,14 @@ export interface ProductsSelect<T extends boolean = true> {
         alt?: T;
         id?: T;
       };
+  badges?:
+    | T
+    | {
+        label?: T;
+        style?: T;
+        id?: T;
+      };
+  warrantyMonths?: T;
   basePrice?: T;
   compareAtPrice?: T;
   requiresInstallation?: T;
@@ -677,6 +711,7 @@ export interface ProductsSelect<T extends boolean = true> {
         active?: T;
         id?: T;
       };
+  stock?: T;
   published?: T;
   featured?: T;
   order?: T;
@@ -762,6 +797,16 @@ export interface MediaSelect<T extends boolean = true> {
     | T
     | {
         thumbnail?:
+          | T
+          | {
+              url?: T;
+              width?: T;
+              height?: T;
+              mimeType?: T;
+              filesize?: T;
+              filename?: T;
+            };
+        productCard?:
           | T
           | {
               url?: T;

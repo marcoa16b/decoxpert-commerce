@@ -20,6 +20,12 @@ export const Media: CollectionConfig = {
         position: 'centre',
       },
       {
+        name: 'productCard',
+        width: 800,
+        height: 600,
+        position: 'centre',
+      },
+      {
         name: 'card',
         width: 768,
         height: 1024,

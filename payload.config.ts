@@ -45,10 +45,12 @@ export default buildConfig({
 
   plugins: [
     seoPlugin({
-      collections: ['pages', 'products', 'categories'],
+      collections: ['products', 'categories'],
       uploadsCollection: 'media',
-      generateTitle: ({ doc }) => `DecoXpert — ${doc?.title?.value || doc?.title || 'Inicio'}`,
-      generateDescription: ({ doc }) => doc?.description || doc?.excerpt,
+      generateTitle: ({ doc }) => `DecoXpert — ${doc?.title || doc?.name || 'Inicio'}`,
+      generateDescription: ({ doc }) =>
+        doc?.shortDescription ||
+        (typeof doc?.description === 'string' ? doc.description : undefined),
     }),
     s3Storage({
       collections: {

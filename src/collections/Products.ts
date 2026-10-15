@@ -131,6 +131,49 @@ export const Products: CollectionConfig = {
                 },
               ],
             },
+            {
+              name: 'badges',
+              type: 'array',
+              label: 'Badges / etiquetas',
+              labels: {
+                singular: 'Badge',
+                plural: 'Badges',
+              },
+              admin: {
+                description:
+                  'Etiquetas de la tarjeta y la página de producto. "Promo" se muestra en rojo (ej: "Más vendido") y "Highlight" en verde (ej: "Garantía 1 año"). El descuento (-X% OFF) NO se escribe aquí: se calcula desde el precio tachado.',
+              },
+              fields: [
+                {
+                  name: 'label',
+                  type: 'text',
+                  label: 'Texto',
+                  required: true,
+                },
+                {
+                  name: 'style',
+                  type: 'select',
+                  label: 'Estilo',
+                  required: true,
+                  defaultValue: 'highlight',
+                  options: [
+                    { label: 'Promo (rojo)', value: 'promo' },
+                    { label: 'Highlight (verde)', value: 'highlight' },
+                    { label: 'Info (neutro)', value: 'info' },
+                  ],
+                },
+              ],
+            },
+            {
+              name: 'warrantyMonths',
+              type: 'number',
+              label: 'Garantía (meses)',
+              min: 0,
+              admin: {
+                description:
+                  'Meses de garantía ofrecidos. Se muestra en la tarjeta y la página de producto.',
+              },
+            },
           ],
         },
         {
@@ -354,6 +397,16 @@ export const Products: CollectionConfig = {
         {
           label: 'Visibilidad',
           fields: [
+            {
+              name: 'stock',
+              type: 'number',
+              label: 'Stock',
+              min: 0,
+              admin: {
+                description:
+                  'Disponibilidad del producto cuando NO tiene variantes. Vacío = sin control de stock. 0 = agotado. Si tiene variantes, el stock se controla por variante.',
+              },
+            },
             {
               name: 'published',
               type: 'checkbox',
