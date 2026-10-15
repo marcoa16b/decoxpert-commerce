@@ -96,11 +96,11 @@ export default function Hero() {
               className="object-cover"
             />
             <span className="absolute top-3 left-3 flex items-center gap-2 rounded-full bg-black/60 backdrop-blur px-3 py-1.5 text-[11px] font-heading font-bold uppercase text-foreground">
-              <span className="relative w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-              Servicio en vivo: San Isidro
+              <IconMapPin size={12} className="text-green-400" />
+              Instalación a domicilio
             </span>
             <span className="absolute bottom-3 right-3 rounded-full bg-red-600 px-3 py-1.5 text-[11px] font-heading font-extrabold uppercase text-white shadow-button-red">
-              Técnico nivel 3 master
+              Técnicos certificados
             </span>
           </div>
 
@@ -119,7 +119,7 @@ export default function Hero() {
                 100%
               </span>
               <span className="text-[10px] font-bold uppercase text-foreground/60">
-                Plug &amp; play
+                Conexiones protegidas
               </span>
             </div>
             <div className="flex flex-col items-center gap-1 py-4 px-2 text-center">
@@ -137,10 +137,11 @@ export default function Hero() {
             <IconShieldCheck size={22} className="text-green-400 shrink-0" />
             <p className="text-xs text-foreground/70 leading-relaxed">
               <span className="font-bold text-foreground">
-                Cero riesgo de pérdida de garantía:
+                Instalación profesional y segura:
               </span>{" "}
-              empleamos arneses originales Canbus y respetamos la configuración
-              de fábrica para tu marca y modelo.
+              hacemos las conexiones necesarias con cableado aislado, protegido
+              y bien organizado, respetando la configuración de fábrica de tu
+              marca y modelo.
             </p>
           </div>
         </div>

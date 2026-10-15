@@ -17,7 +17,7 @@ const faqs: Faq[] = [
   {
     question: "¿Los productos son compatibles con mi carro?",
     answer:
-      "Sí. Antes de instalar verificamos la marca, modelo y año de tu vehículo. Trabajamos con arneses originales Canbus y adaptadores específicos por modelo, así que la pantalla, alarma o GPS quedan integrados sin perder funciones del tablero ni de los mandos del timón.",
+      "Sí. Antes de instalar verificamos la marca, modelo y año de tu vehículo. Usamos los arneses y adaptadores específicos para cada modelo y realizamos las conexiones de forma segura, integrando la pantalla, alarma o GPS sin perder funciones del tablero ni de los mandos del timón.",
   },
   {
     question: "¿Qué zonas cubren para instalar a domicilio?",
@@ -32,7 +32,7 @@ const faqs: Faq[] = [
   {
     question: "¿Puedo comprar solo y hacer el envío sin instalación?",
     answer:
-      "Claro. En cada producto podés elegir \"Solo envío\" y te lo mandamos con todas las instrucciones y arneses listos para conectar. Si preferís la comodidad de tenerlo funcionando, elegís \"+ Instalación\" y nuestro técnico lo deja probado en tu domicilio.",
+      "Claro. En cada producto podés elegir \"Solo envío\" y te lo mandamos con su arnés y las instrucciones de instalación. Si preferís la comodidad de tenerlo funcionando, elegís \"+ Instalación\" y nuestro técnico lo deja probado en tu domicilio.",
   },
   {
     question: "¿La instalación incluye garantía?",

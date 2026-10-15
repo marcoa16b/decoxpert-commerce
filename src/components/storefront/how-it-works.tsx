@@ -21,7 +21,7 @@ const steps: Step[] = [
     title: "Elige tu accesorio o alarma",
     description:
       "Explora nuestro catálogo en línea o consúltanos por WhatsApp el envío exprés compatible con la marca, año y modelo de tu vehículo.",
-    accent: "Plug & Play garantizado",
+    accent: "Compatible con tu vehículo",
     icon: <IconShoppingCart size={22} stroke={1.5} />,
   },
   {
@@ -83,7 +83,7 @@ export default function HowItWorks() {
           </h2>
           <p className="text-sm text-foreground/70 leading-relaxed">
             Diseñado para que continues con tu día en casa o tu oficina sin
-            complicaciones técnicas ni riesgos eléctricos.
+            complicaciones técnicas ni tiempos de espera.
           </p>
         </div>
 
@@ -114,7 +114,7 @@ export default function HowItWorks() {
           <div className="flex items-center gap-2 self-end sm:self-auto px-3 py-2 rounded-full bg-red-500/10 border border-red-500/20">
             <IconBolt size={14} className="text-red-400" />
             <span className="text-[11px] font-heading font-extrabold uppercase tracking-wider text-red-400">
-              Cero modificaciones invasivas
+              Cableado aislado y protegido
             </span>
           </div>
         </div>

@@ -6,7 +6,6 @@ import {
   IconBrandWhatsapp,
   IconHandStop,
   IconShoppingBag,
-  IconStarFilled,
   IconTruckDelivery,
 } from "@tabler/icons-react";
 import Image from "next/image";
@@ -18,8 +17,6 @@ type Product = {
   description: string;
   redBadge: string;
   greenBadge: string;
-  rating: number;
-  reviews: number;
   price: string;
   whatsappHref: string;
 };
@@ -32,8 +29,6 @@ const products: Product[] = [
       "Control con pantalla LCD interactiva, alcance 1.5 km, sensor de doble impacto y apertura remota de maletero.",
     redBadge: "-25% OFF",
     greenBadge: "Garantía 1 Año",
-    rating: 4.9,
-    reviews: 142,
     price: "₡120.00",
     whatsappHref: "#",
   },
@@ -44,8 +39,6 @@ const products: Product[] = [
       "Monitoreo en vivo vía satélite, historial de rutas 90 días, micrófono espía y corte de corriente antirrobo.",
     redBadge: "Más vendido",
     greenBadge: "Sin Mensualidades",
-    rating: 5.0,
-    reviews: 388,
     price: "₡95.00",
     whatsappHref: "#",
   },
@@ -56,8 +49,6 @@ const products: Product[] = [
       "Panel IPS QLED, Android 13, Apple CarPlay & Android Auto inalámbrico, DSP 32 bandas y ecualizador profesional.",
     redBadge: "Premium Tech",
     greenBadge: "Mantiene Mandos Timón",
-    rating: 4.9,
-    reviews: 210,
     price: "₡240.00",
     whatsappHref: "#",
   },
@@ -68,8 +59,6 @@ const products: Product[] = [
       "Potencia 270W pico / 90W RMS, tweeters de cúpula de seda para agudos cristalinos y crossovers externos incluidos.",
     redBadge: "Alta Fidelidad",
     greenBadge: "Audio Puro",
-    rating: 4.8,
-    reviews: 95,
     price: "₡110.00",
     whatsappHref: "#",
   },
@@ -80,22 +69,10 @@ const products: Product[] = [
       "Lente gran angular ojo de pez 170°, sensor Starlight para oscuridad total y guías dinámicas de parqueo.",
     redBadge: "Impermeable IP68",
     greenBadge: "Ángulo 170°",
-    rating: 4.9,
-    reviews: 174,
     price: "₡55.00",
     whatsappHref: "#",
   },
 ];
-
-function StarRating({ value, reviews }: { value: number; reviews: number }) {
-  return (
-    <span className="flex items-center gap-1.5 text-xs font-heading font-bold text-foreground/70">
-      <IconStarFilled size={14} className="text-green-400" />
-      <span className="text-foreground">{value.toFixed(1)}</span>
-      <span className="text-foreground/50">({reviews})</span>
-    </span>
-  );
-}
 
 function ProductCard({ product }: { product: Product }) {
   const [mode, setMode] = useState<"ship" | "install">("install");
@@ -122,12 +99,9 @@ function ProductCard({ product }: { product: Product }) {
 
       {/* INFO */}
       <div className="flex flex-col gap-3 p-5">
-        <div className="flex items-start justify-between gap-3">
-          <span className="text-[11px] font-heading font-extrabold uppercase tracking-wider text-red-500">
-            {product.category}
-          </span>
-          <StarRating value={product.rating} reviews={product.reviews} />
-        </div>
+        <span className="text-[11px] font-heading font-extrabold uppercase tracking-wider text-red-500">
+          {product.category}
+        </span>
 
         <div className="flex flex-col gap-1.5">
           <h3 className="text-sm font-heading font-extrabold uppercase leading-tight line-clamp-2">
@@ -184,9 +158,9 @@ function ProductCard({ product }: { product: Product }) {
           </div>
           <a
             href={product.whatsappHref}
-            className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-600 transition-colors px-4 py-2.5 rounded-xl text-xs font-heading font-extrabold uppercase tracking-wider text-white shadow-button"
+            className="inline-flex shrink-0 items-center gap-1.5 whitespace-nowrap bg-green-500 hover:bg-green-600 transition-colors px-3 py-2 rounded-lg text-[10px] font-heading font-extrabold uppercase tracking-wider text-white shadow-button"
           >
-            <IconBrandWhatsapp size={16} />
+            <IconBrandWhatsapp size={14} />
             Pedir WhatsApp
           </a>
         </div>

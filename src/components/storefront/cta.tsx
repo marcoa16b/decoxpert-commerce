@@ -8,7 +8,7 @@ import Link from "next/link";
 const bullets = [
   "Técnico certificado en tu cochera",
   "Garantía escrita de 12 meses",
-  "Arneses originales sin cortes",
+  "Conexiones aisladas y protegidas",
 ];
 
 export default function Cta() {

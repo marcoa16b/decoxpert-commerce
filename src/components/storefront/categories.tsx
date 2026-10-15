@@ -63,8 +63,8 @@ export default function Categories() {
             </h2>
           </div>
           <p className="text-sm text-foreground/70 lg:max-w-md lg:text-right">
-            Sistemas integrados diseñados para conservar la estética y la
-            garantía eléctrica original de tu auto.
+            Sistemas integrados diseñados para conservar la estética de tu auto
+            y cuidar su sistema eléctrico.
           </p>
         </div>
 
