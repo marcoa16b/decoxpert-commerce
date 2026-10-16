@@ -33,7 +33,7 @@ export const Settings: GlobalConfig = {
               label: 'Mensaje predeterminado de WhatsApp',
               admin: {
                 description:
-                  'Mensaje que se envía al iniciar una conversación desde la web. Si está vacío se usa uno genérico.',
+                  'Mensaje que se envía al iniciar una conversación desde la web. También se usa como respaldo del encabezado del carrito si este queda vacío. Si está vacío se usa uno genérico.',
               },
             },
             {
@@ -145,10 +145,10 @@ export const Settings: GlobalConfig = {
               type: 'textarea',
               label: 'Encabezado del mensaje de WhatsApp',
               defaultValue:
-                'Hola DecoXpert, me interesa hacer el siguiente pedido desde la tienda online:',
+                'Hola, soy {nombre} y me interesan estos productos:',
               admin: {
                 description:
-                  'Texto que aparece al inicio del mensaje de WhatsApp cuando el cliente envía el carrito.',
+                  'Texto que aparece al inicio del mensaje de WhatsApp cuando el cliente envía el carrito. Podés usar el marcador {nombre} y se reemplaza por el nombre que escribe el cliente.',
               },
             },
             {

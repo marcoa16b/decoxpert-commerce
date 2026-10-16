@@ -1,63 +1,64 @@
 "use client"
-import { IconBrandWhatsapp, IconSearch, IconShoppingBag, IconMenuDeep } from "@tabler/icons-react"
 import LogoImage from "@/app/assets/Logo.png"
+import CartButton from "@/components/storefront/cart/cart-button"
+import { useCart } from "@/components/storefront/cart/cart-context"
+import { IconBrandWhatsapp, IconMenuDeep, IconSearch } from "@tabler/icons-react"
 import Image from "next/image"
 import Link from "next/link"
+import { useRouter } from "next/navigation"
 import { useState } from "react"
-import { motion } from "motion/react"
 import { Sheet, SheetContent, SheetFooter, SheetHeader, SheetTrigger } from "../ui/sheet"
-import { Button } from "../ui/button"
 
 export default function Header() {
+  const { settings } = useCart()
+  const router = useRouter()
+  const [query, setQuery] = useState("")
   const links = [
-    {
-      title: "Inicio",
-      link: "/"
-    },
-    {
-      title: "Catálogo",
-      link: "/"
-    },
-    {
-      title: "Instalación a domicilio",
-      link: "/"
-    },
-    {
-      title: "Zonas de cobertura",
-      link: "/"
-    },
-    // {
-    //   title: "Articulos",
-    //   link: "/"
-    // },
+    { title: "Inicio", link: "/" },
+    { title: "Catálogo", link: "/catalogo" },
+    { title: "Instalación a domicilio", link: "/" },
+    { title: "Zonas de cobertura", link: "/" },
   ]
 
+  const submitSearch = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+    const value = query.trim()
+    router.push(value ? `/catalogo?q=${encodeURIComponent(value)}` : "/catalogo")
+  }
+
+  const whatsappHref = settings.whatsappNumber
+    ? `https://wa.me/${settings.whatsappNumber.replace(/\D/g, "")}`
+    : "#"
+
   return (
-    <header className="sticky top-0 flex flex-col w-full py-3 px-4 bg-background/60 backdrop-blur-2xl z-50">
+    <header className="sticky top-0 flex w-full flex-col bg-background/60 px-4 py-3 backdrop-blur-2xl z-50">
       <div className="flex items-center justify-between gap-2">
         <Sheet>
-          <SheetTrigger className="hover:scale-105 duration-200">
+          <SheetTrigger className="duration-200 hover:scale-105">
             <IconMenuDeep className="scale-x-[-1]" />
           </SheetTrigger>
           <SheetContent side="left">
             <SheetHeader>
-              <Image
-                src={LogoImage}
-                alt="DecoXpert Logo"
-                className="max-w-40"
-              />
+              <Image src={LogoImage} alt="DecoXpert Logo" className="max-w-40" />
             </SheetHeader>
-            <div className="w-full h-px bg-muted mb-5" />
+            <div className="mb-5 h-px w-full bg-muted" />
             <div className="flex flex-col items-start gap-2 px-4">
-              {links.map((l) => (
-                <Link key={l.title} href={l.link} className="w-full justify-start text-lg h-fit font-heading font-bold hover:[&_div]:w-full uppercase text-foreground/70 hover:text-foreground duration-200">
-                  {l.title}
-                  <div className="w-0 h-0.5 bg-red-600 duration-200" />
+              {links.map((link) => (
+                <Link
+                  key={link.title}
+                  href={link.link}
+                  className="w-full justify-start text-lg h-fit font-heading font-bold uppercase text-foreground/70 duration-200 hover:text-foreground hover:[&_div]:w-full"
+                >
+                  {link.title}
+                  <div className="h-0.5 w-0 bg-red-600 duration-200" />
                 </Link>
               ))}
             </div>
             <SheetFooter className="px-4">
-              <Link href="#" className="w-full justify-start text-xs h-fit font-heading text-foreground/70 hover:text-foreground duration-200">
+              <Link
+                href="#"
+                className="w-full justify-start text-xs h-fit font-heading text-foreground/70 duration-200 hover:text-foreground"
+              >
                 Politica de privacidad
               </Link>
             </SheetFooter>
@@ -65,56 +66,38 @@ export default function Header() {
         </Sheet>
 
         {/* LOGO */}
-        <Image
-          src={LogoImage}
-          alt="DecoXpert Logo"
-          className="max-w-40"
-        />
+        <Link href="/">
+          <Image src={LogoImage} alt="DecoXpert Logo" className="max-w-40" />
+        </Link>
 
-        <div className="hidden w-full md:flex items-center border border-foreground/20 rounded-xl bg-background px-2 py-1 mx-10">
+        <form
+          onSubmit={submitSearch}
+          className="mx-10 hidden w-full items-center rounded-xl border border-foreground/20 bg-background px-2 py-1 md:flex"
+        >
           <IconSearch size={18} className="text-foreground-primary" />
           <input
+            value={query}
+            onChange={(event) => setQuery(event.target.value)}
             placeholder="Alarmas, GPS, Pantallas Android, Parlantes..."
-            className="outline-none px-1 w-full"
+            className="w-full px-1 outline-none"
           />
-        </div>
+        </form>
 
         <div className="flex items-center gap-2">
           {/* WhatsApp */}
-          <button className="p-1.5 rounded-full border border-green-600 bg-green-600">
+          <a
+            href={whatsappHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded-full border border-green-600 bg-green-600 p-1.5"
+          >
             <IconBrandWhatsapp size={20} />
-          </button>
+          </a>
 
           {/* BAG */}
-          <button className="p-1.5 rounded-full border border-foreground/20 ">
-            <IconShoppingBag size={20} />
-          </button>
-
+          <CartButton />
         </div>
-
       </div>
     </header>
-  )
-}
-
-const NavMobileItem = ({
-  children,
-  link
-}: {
-  children: React.ReactNode;
-  link: string;
-}) => {
-  return (
-    <motion.div
-      className="relative w-full text-end py-3 hover:[&_div]:w-full"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1, transition: { delay: 0.3 }}}
-      exit={{ opacity: 0 }}
-    >
-      <Link href={link} className="block w-full px-4 pb-0.5 text-xl md:text-sm rounded-md uppercase font-bold">
-        {children}
-      </Link>
-      <div className="w-0 h-1 bg-primary duration-200" />
-    </motion.div>
   )
 }

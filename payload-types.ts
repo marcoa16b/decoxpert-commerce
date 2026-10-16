@@ -922,7 +922,7 @@ export interface Setting {
    */
   whatsappNumber: string;
   /**
-   * Mensaje que se envía al iniciar una conversación desde la web. Si está vacío se usa uno genérico.
+   * Mensaje que se envía al iniciar una conversación desde la web. También se usa como respaldo del encabezado del carrito si este queda vacío. Si está vacío se usa uno genérico.
    */
   whatsappDefaultMessage?: string | null;
   phone?: string | null;
@@ -954,7 +954,7 @@ export interface Setting {
       }[]
     | null;
   /**
-   * Texto que aparece al inicio del mensaje de WhatsApp cuando el cliente envía el carrito.
+   * Texto que aparece al inicio del mensaje de WhatsApp cuando el cliente envía el carrito. Podés usar el marcador {nombre} y se reemplaza por el nombre que escribe el cliente.
    */
   cartHeaderMessage?: string | null;
   /**
