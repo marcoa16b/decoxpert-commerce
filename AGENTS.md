@@ -44,9 +44,9 @@ Algunos artículos requieren instalación obligatoria, otros son opcionales, y o
 - Variables de entorno: `DATABASE_URL`, `PAYLOAD_SECRET` (en `.env`)
 
 ## Estado actual
-- Proyecto recién inicializado, scaffold funcional verificado.
-- Una sola colección `pages` de placeholder con `admin.group: 'HOME'`.
-- `collections/` está vacío — listo para empezar a modelar el dominio.
+- Scaffold funcional verificado y dominio ecommerce en construcción.
+- Colecciones en `src/collections/`: `Categories`, `ProductAttributes`, `Products`, `Orders`, `Pages` y `Media`.
+- Global `Settings` en `src/globals/Settings.ts`.
 
 ## Modelo de dominio (a construir)
 Entidades principales esperadas para el ecommerce:
@@ -63,7 +63,7 @@ Entidades principales esperadas para el ecommerce:
 - Antes de escribir código de Next.js, **consultar `node_modules/next/dist/docs/`** (regla del bloque BEGIN/END arriba).
 - Antes de tocar APIs de Payload, **consultar la Skill payload** para leer documentacion actualizada.
 - No modificar `payload-types.ts` a mano; regenerar con `payload generate:types`.
-- Respetar el grupo `HOME` para colecciones de contenido institucional (páginas).
+- Las colecciones de contenido institucional usan un grupo admin descriptivo y en español (ej: `Páginas legales`); no agruparlas en un grupo genérico tipo `HOME`.
 - Tailwind 4: sin `tailwind.config.js` por defecto — config via CSS en `globals.css`.
 - Utilizar Openspec para el proceso de desarrollo con utilizando los subagentes.
 

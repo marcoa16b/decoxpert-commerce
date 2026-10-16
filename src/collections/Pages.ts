@@ -24,7 +24,7 @@ export const Pages: CollectionConfig = {
     plural: 'Páginas',
   },
   admin: {
-    group: 'HOME',
+    group: 'Páginas legales',
     useAsTitle: 'title',
     defaultColumns: ['title', 'slug', '_status', 'updatedAt'],
     listSearchableFields: ['title', 'slug'],
