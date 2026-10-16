@@ -26,8 +26,8 @@ const columns: { title: string; links: FooterLink[] }[] = [
   {
     title: "Atención & Reserva",
     links: [
-      { label: "Mapa de Cobertura Express", href: "#" },
-      { label: "Agendar Técnico a Casa", href: "#" },
+      { label: "Mapa de Cobertura Express", href: "/zonas-de-cobertura" },
+      { label: "Agendar Técnico a Casa", href: "/instalacion-a-domicilio" },
       { label: "Seguimiento de Orden", href: "#" },
       { label: "Canal VIP WhatsApp", href: "#", highlight: true },
     ],
@@ -35,9 +35,10 @@ const columns: { title: string; links: FooterLink[] }[] = [
 ];
 
 const legalLinks = [
-  { label: "Términos de Garantía", href: "#" },
-  { label: "Políticas de Instalación", href: "#" },
-  { label: "Privacidad", href: "#" },
+  { label: "Términos de Garantía", href: "/paginas/terminos-de-garantia" },
+  { label: "Políticas de Instalación", href: "/paginas/politicas-de-instalacion" },
+  { label: "Términos y Condiciones", href: "/paginas/terminos-y-condiciones" },
+  { label: "Privacidad", href: "/paginas/politica-de-privacidad" },
 ];
 
 export default function Footer() {

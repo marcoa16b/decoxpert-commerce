@@ -2,6 +2,7 @@ import type { Category, Product, Setting } from "@payload-types";
 import type { Where } from "payload";
 import type { CatalogFilters, CatalogSort } from "./catalog-params";
 import { getPayloadClient } from "./payload";
+import { getCompareAt, getStartingPrice } from "./pricing";
 
 export async function getSettings(): Promise<Setting> {
   const payload = await getPayloadClient();
@@ -166,6 +167,65 @@ export async function getCategoryAndDescendantIds(
   }
 
   return ids;
+}
+
+export type ProductSearchResult = {
+  id: number;
+  title: string;
+  slug: string;
+  shortDescription: string | null;
+  imageUrl: string | null;
+  imageAlt: string | null;
+  price: number;
+  compareAt: number | null;
+  categoryName: string | null;
+};
+
+/**
+ * Búsqueda ligera para el diálogo del header. Devuelve solo lo necesario para
+ * listar resultados (no descripciones completas ni variantes).
+ */
+export async function searchProducts(
+  query: string,
+  limit = 8,
+): Promise<ProductSearchResult[]> {
+  const term = query.trim();
+  if (term.length < 2) return [];
+
+  const payload = await getPayloadClient();
+  const { docs } = await payload.find({
+    collection: "products",
+    where: {
+      and: [
+        { published: { equals: true } },
+        {
+          or: [
+            { title: { contains: term } },
+            { sku: { contains: term } },
+            { shortDescription: { contains: term } },
+          ],
+        },
+      ],
+    },
+    sort: "order",
+    limit,
+    depth: 2,
+  });
+
+  return docs.map((product) => {
+    const image = getProductImage(product);
+    return {
+      id: product.id,
+      title: product.title,
+      slug: product.slug,
+      shortDescription: product.shortDescription ?? null,
+      imageUrl: image?.url ?? null,
+      imageAlt: image?.alt ?? null,
+      price: getStartingPrice(product),
+      compareAt: getCompareAt(product),
+      categoryName: getCategoryName(product),
+    };
+  });
 }
 
 export type CatalogResult = {

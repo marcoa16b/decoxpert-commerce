@@ -2,29 +2,20 @@
 import LogoImage from "@/app/assets/Logo.png"
 import CartButton from "@/components/storefront/cart/cart-button"
 import { useCart } from "@/components/storefront/cart/cart-context"
-import { IconBrandWhatsapp, IconMenuDeep, IconSearch } from "@tabler/icons-react"
+import SearchDialog from "@/components/storefront/search/search-dialog"
+import { IconBrandWhatsapp, IconMenuDeep } from "@tabler/icons-react"
 import Image from "next/image"
 import Link from "next/link"
-import { useRouter } from "next/navigation"
-import { useState } from "react"
 import { Sheet, SheetContent, SheetFooter, SheetHeader, SheetTrigger } from "../ui/sheet"
 
 export default function Header() {
   const { settings } = useCart()
-  const router = useRouter()
-  const [query, setQuery] = useState("")
   const links = [
     { title: "Inicio", link: "/" },
     { title: "Catálogo", link: "/catalogo" },
-    { title: "Instalación a domicilio", link: "/" },
-    { title: "Zonas de cobertura", link: "/" },
+    { title: "Instalación a domicilio", link: "/instalacion-a-domicilio" },
+    { title: "Zonas de cobertura", link: "/zonas-de-cobertura" },
   ]
-
-  const submitSearch = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault()
-    const value = query.trim()
-    router.push(value ? `/catalogo?q=${encodeURIComponent(value)}` : "/catalogo")
-  }
 
   const whatsappHref = settings.whatsappNumber
     ? `https://wa.me/${settings.whatsappNumber.replace(/\D/g, "")}`
@@ -70,18 +61,7 @@ export default function Header() {
           <Image src={LogoImage} alt="DecoXpert Logo" className="max-w-40" />
         </Link>
 
-        <form
-          onSubmit={submitSearch}
-          className="mx-10 hidden w-full items-center rounded-xl border border-foreground/20 bg-background px-2 py-1 md:flex"
-        >
-          <IconSearch size={18} className="text-foreground-primary" />
-          <input
-            value={query}
-            onChange={(event) => setQuery(event.target.value)}
-            placeholder="Alarmas, GPS, Pantallas Android, Parlantes..."
-            className="w-full px-1 outline-none"
-          />
-        </form>
+        <SearchDialog />
 
         <div className="flex items-center gap-2">
           {/* WhatsApp */}

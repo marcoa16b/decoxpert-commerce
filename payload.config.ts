@@ -9,6 +9,7 @@ import { Categories } from './src/collections/Categories'
 import { ProductAttributes } from './src/collections/ProductAttributes'
 import { Products } from './src/collections/Products'
 import { Orders } from './src/collections/Orders'
+import { Pages } from './src/collections/Pages'
 import { Settings } from './src/globals/Settings'
 
 const USR = {
@@ -28,6 +29,7 @@ export default buildConfig({
     ProductAttributes,
     Products,
     Orders,
+    Pages,
     Media,
   ],
 
@@ -45,7 +47,7 @@ export default buildConfig({
 
   plugins: [
     seoPlugin({
-      collections: ['products', 'categories'],
+      collections: ['products', 'categories', 'pages'],
       uploadsCollection: 'media',
       generateTitle: ({ doc }) => `DecoXpert — ${doc?.title || doc?.name || 'Inicio'}`,
       generateDescription: ({ doc }) =>

@@ -5,6 +5,7 @@ import {
   IconShieldCheck,
 } from "@tabler/icons-react";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Hero() {
   return (
@@ -76,10 +77,13 @@ export default function Hero() {
                   className="w-full bg-transparent outline-none text-sm py-2.5 placeholder:text-foreground/40"
                 />
               </div>
-              <button className="bg-red-600 hover:bg-red-700 duration-200 px-4 rounded-xl text-sm font-heading font-extrabold uppercase shadow-button-red flex items-center gap-2 shrink-0">
+              <Link
+                href="/zonas-de-cobertura"
+                className="bg-red-600 hover:bg-red-700 duration-200 px-4 rounded-xl text-sm font-heading font-extrabold uppercase shadow-button-red flex items-center gap-2 shrink-0"
+              >
                 <IconRosetteDiscountCheck size={18} />
                 Comprobar
-              </button>
+              </Link>
             </div>
           </div>
         </div>

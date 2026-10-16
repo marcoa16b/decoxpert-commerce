@@ -146,3 +146,52 @@ button {
 .shadow-button-green {
     box-shadow: 0 0 15px 0 rgba(0, 132, 58, 0.4);
 }
+
+/* Rich text (Payload Lexical) */
+.rich-text {
+    @apply text-sm leading-relaxed text-foreground/80;
+}
+
+.rich-text > * + * {
+    @apply mt-4;
+}
+
+.rich-text h2 {
+    @apply mt-8 font-heading text-lg font-extrabold uppercase text-foreground;
+}
+
+.rich-text h3 {
+    @apply mt-6 font-heading text-base font-extrabold uppercase text-foreground;
+}
+
+.rich-text h4 {
+    @apply mt-4 font-heading text-sm font-extrabold uppercase text-foreground;
+}
+
+.rich-text p {
+    @apply text-foreground/75;
+}
+
+.rich-text a {
+    @apply text-red-500 underline underline-offset-4 transition-colors hover:text-red-400;
+}
+
+.rich-text strong {
+    @apply font-bold text-foreground;
+}
+
+.rich-text ul {
+    @apply list-disc space-y-1 pl-5;
+}
+
+.rich-text ol {
+    @apply list-decimal space-y-1 pl-5;
+}
+
+.rich-text blockquote {
+    @apply border-l-2 border-red-500/40 pl-4 italic text-foreground/60;
+}
+
+.rich-text hr {
+    @apply my-8 border-foreground/10;
+}
