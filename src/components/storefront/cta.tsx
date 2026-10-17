@@ -1,9 +1,12 @@
+"use client";
+
+import { useCart } from "@/components/storefront/cart/cart-context";
+import { buildWhatsappHref } from "@/lib/whatsapp";
 import {
   IconBrandWhatsapp,
   IconCalendarEvent,
   IconShieldCheck,
 } from "@tabler/icons-react";
-import Link from "next/link";
 
 const bullets = [
   "Técnico certificado en tu cochera",
@@ -12,6 +15,12 @@ const bullets = [
 ];
 
 export default function Cta() {
+  const { settings } = useCart();
+  const whatsappHref = buildWhatsappHref(
+    settings.whatsappNumber,
+    settings.whatsappDefaultMessage,
+  );
+
   return (
     <section className="py-16 md:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -35,15 +44,22 @@ export default function Cta() {
             </p>
 
             <div className="flex flex-wrap justify-center gap-3 mt-1">
-              <Link
-                href="#"
+              <a
+                href={buildWhatsappHref(
+                  settings.whatsappNumber,
+                  "Hola, quiero agendar la instalación a domicilio de mi vehículo. ¿Me ayudan a coordinar una visita?",
+                )}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 bg-red-600 hover:bg-red-700 transition-colors px-6 py-3.5 rounded-xl text-xs font-heading font-extrabold uppercase tracking-wider text-white shadow-button-red"
               >
                 <IconCalendarEvent size={16} />
                 Agendar instalación
-              </Link>
+              </a>
               <a
-                href="#"
+                href={whatsappHref}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 border-2 border-green-400/60 bg-green-400/5 hover:bg-green-400 hover:border-green-400 hover:text-black transition-colors px-6 py-3.5 rounded-xl text-xs font-heading font-extrabold uppercase tracking-wider text-green-400"
               >
                 <IconBrandWhatsapp size={16} />

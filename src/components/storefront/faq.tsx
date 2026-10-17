@@ -1,5 +1,7 @@
 "use client";
 
+import { useCart } from "@/components/storefront/cart/cart-context";
+import { buildWhatsappHref } from "@/lib/whatsapp";
 import {
   IconBrandWhatsapp,
   IconMessageCircle,
@@ -102,6 +104,11 @@ function FaqItem({
 
 export default function Faq() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const { settings } = useCart();
+  const whatsappHref = buildWhatsappHref(
+    settings.whatsappNumber,
+    settings.whatsappDefaultMessage,
+  );
 
   return (
     <section className="py-16 md:py-24">
@@ -140,7 +147,9 @@ export default function Faq() {
                 </div>
               </div>
               <a
-                href="#"
+                href={whatsappHref}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 transition-colors px-4 py-3 rounded-xl text-xs font-heading font-extrabold uppercase tracking-wider text-white shadow-button"
               >
                 <IconBrandWhatsapp size={16} />
