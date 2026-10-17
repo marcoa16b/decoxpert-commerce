@@ -37,7 +37,7 @@ const steps: Step[] = [
     title: "Instalación certificada",
     description:
       "Nuestro técnico móvil arriba equipado, realiza la instalación impecable sin cables a la vista, prueba el sistema contigo y entrega tu garantía por escrito.",
-    accent: "Certificado de 12 meses",
+    accent: "Garantía por escrito",
     icon: <IconShieldCheck size={22} stroke={1.5} />,
   },
 ];
@@ -102,11 +102,11 @@ export default function HowItWorks() {
             </span>
             <div className="flex flex-col gap-0.5">
               <span className="text-xs font-heading font-extrabold uppercase tracking-wider">
-                Herramientas aisladas y scanner OBD2
+                Herramientas aisladas e instrumental de diagnóstico
               </span>
               <p className="text-[11px] text-foreground/60 leading-relaxed">
-                Verificamos códigos de falla antes y después de cada instalación
-                automotriz.
+                Revisamos y probamos el sistema antes y después de cada
+                instalación automotriz.
               </p>
             </div>
           </div>

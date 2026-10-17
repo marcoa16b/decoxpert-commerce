@@ -13,7 +13,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Instalación a domicilio | DecoXpert",
   description:
-    "Instalamos alarmas, GPS, pantallas Android y car audio en la puerta de tu casa u oficina. Técnicos certificados, cableado aislado y garantía escrita de 12 meses.",
+    "Instalamos alarmas, GPS, pantallas Android y car audio en la puerta de tu casa u oficina. Técnicos certificados, cableado aislado y garantía escrita.",
 };
 
 export default async function InstallationPage() {

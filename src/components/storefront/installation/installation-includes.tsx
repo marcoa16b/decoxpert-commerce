@@ -24,9 +24,9 @@ const items: Item[] = [
     icon: <IconPlugConnected size={20} stroke={1.5} />,
   },
   {
-    title: "Scanner OBD2",
+    title: "Diagnóstico profesional",
     description:
-      "Leemos los códigos de falla antes y después de cada instalación para no alterar el vehículo.",
+      "Revisamos y probamos el estado del vehículo antes y después de cada instalación para no alterar su funcionamiento.",
     icon: <IconActivity size={20} stroke={1.5} />,
   },
   {
@@ -38,7 +38,7 @@ const items: Item[] = [
   {
     title: "Garantía escrita",
     description:
-      "Certificado de 12 meses que cubre tanto el equipo como la mano de obra de la instalación.",
+      "Certificado por escrito que cubre tanto el equipo como la mano de obra de la instalación.",
     icon: <IconCertificate size={20} stroke={1.5} />,
   },
   {

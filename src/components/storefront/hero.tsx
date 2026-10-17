@@ -128,7 +128,7 @@ export default function Hero() {
             </div>
             <div className="flex flex-col items-center gap-1 py-4 px-2 text-center">
               <span className="font-heading font-extrabold text-2xl">
-                12 m
+                Escrita
               </span>
               <span className="text-[10px] font-bold uppercase text-foreground/60">
                 Garantía real

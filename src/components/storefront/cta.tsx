@@ -7,7 +7,7 @@ import Link from "next/link";
 
 const bullets = [
   "Técnico certificado en tu cochera",
-  "Garantía escrita de 12 meses",
+  "Garantía por escrito",
   "Conexiones aisladas y protegidas",
 ];
 

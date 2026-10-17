@@ -10,7 +10,7 @@ import Link from "next/link";
 
 const chips = [
   "Técnico certificado en tu cochera",
-  "Garantía escrita de 12 meses",
+  "Garantía por escrito",
   "Cableado aislado y protegido",
   "Equipo probado antes de irnos",
 ];
@@ -18,7 +18,7 @@ const chips = [
 const metrics = [
   { value: "45 min", label: "Instalación express*" },
   { value: "100%", label: "Conexiones protegidas" },
-  { value: "12 m", label: "Garantía real" },
+  { value: "Escrita", label: "Garantía real" },
 ];
 
 export default function InstallationHero({

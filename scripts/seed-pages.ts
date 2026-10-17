@@ -144,7 +144,7 @@ const pages: SeedPage[] = [
       ),
       heading("4. Garantía de la instalación"),
       paragraph(
-        "Toda instalación incluye garantía escrita de 12 meses sobre la mano de obra y el equipo.",
+        "Toda instalación incluye garantía escrita sobre la mano de obra y el equipo. El plazo y la cobertura dependen del proveedor del producto y del tipo de instalación.",
       ),
       heading("5. Cancelaciones y reprogramaciones"),
       paragraph(
@@ -169,7 +169,7 @@ const pages: SeedPage[] = [
       ),
       heading("3. Pedidos y pagos"),
       paragraph(
-        "Detallá los métodos de pago aceptados (tarjeta, transferencia, SINPE Móvil, efectivo) y las condiciones de pago contra entrega.",
+        "Detallá los métodos de pago aceptados (SINPE Móvil, efectivo) y las condiciones para pagar al finalizar la instalación.",
       ),
       heading("4. Envíos e instalación"),
       paragraph(
@@ -191,12 +191,12 @@ const pages: SeedPage[] = [
     title: "Términos de Garantía",
     slug: "terminos-de-garantia",
     excerpt:
-      "Qué cubre la garantía de 12 meses, qué no cubre y cómo hacerla válida.",
+      "Qué cubre la garantía escrita, qué no cubre y cómo hacerla válida.",
     body: [
       paragraph(note),
       heading("1. Cobertura de la garantía"),
       paragraph(
-        "Nuestros productos e instalaciones cuentan con garantía escrita de 12 meses que cubre el equipo y la mano de obra.",
+        "Nuestros productos e instalaciones cuentan con garantía escrita que cubre el equipo y la mano de obra. El plazo y la cobertura dependen del proveedor del producto y del tipo de instalación.",
       ),
       heading("2. Qué no cubre"),
       bulletList([

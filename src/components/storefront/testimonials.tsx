@@ -225,7 +225,7 @@ export default function Testimonials() {
               </span>
             </div>
             <a
-              href="https://search.google.com/local/writereview"
+              href="https://www.google.com/maps/place/Decoxpert+Autodecoraci%C3%B3n+CR/@9.7590347,-84.4552704,11.36z/data=!4m6!3m5!1s0x8fa1afa72d73674b:0x79364fe4eaea4f3a!8m2!3d9.7220811!4d-84.3962535!16s%2Fg%2F11nw52nddj?entry=ttu&g_ep=EgoyMDI2MTAxMy4wIKXMDSoASAFQAw%3D%3D"
               target="_blank"
               rel="noopener noreferrer"
               className="group inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl border-2 border-green-400/60 bg-green-400/5 hover:bg-green-400 hover:border-green-400 hover:shadow-button transition-all duration-200 text-xs font-heading font-extrabold uppercase tracking-wider text-green-400 hover:text-black"

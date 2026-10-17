@@ -37,12 +37,12 @@ const faqs: Faq[] = [
   {
     question: "¿La instalación incluye garantía?",
     answer:
-      "Sí, entregamos certificado por escrito de 12 meses que cubre tanto el equipo como la mano de obra de la instalación. Si algo falla por nuestra cuenta en ese período, lo revisamos sin costo.",
+      "Sí, entregamos garantía por escrito que cubre tanto el equipo como la mano de obra de la instalación. Si algo falla por nuestra cuenta, lo revisamos sin costo.",
   },
   {
-    question: "¿Aceptan tarjeta, SINPE o pago contra entrega?",
+    question: "¿Cómo puedo pagar? ¿Aceptan SINPE o efectivo?",
     answer:
-      "Recibimos tarjeta, transferencia, SINPE Móvil y efectivo. Para pedidos con instalación podés pagar al finalizar la visita, una vez que verificás que todo quedó funcionando a tu gusto.",
+      "Recibimos SINPE Móvil y efectivo y, en pedidos con instalación, podés pagar al finalizar la visita, una vez que verificás que todo quedó funcionando a tu gusto. En cotizaciones de monto alto puede que te solicitemos un adelanto, y te lo pedimos con transparencia: para esos trabajos compramos los repuestos e insumos del equipo por adelantado, así reservamos tu material y aseguramos el precio. El adelanto se descuenta del total y el saldo lo abonás al finalizar la instalación, cuando ya verificaste que todo funciona bien; es una forma de proteger la inversión de ambas partes.",
   },
 ];
 
